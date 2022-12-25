@@ -19,7 +19,16 @@ public class Tester {
 		System.out.println("Enter the Animal age");
 		int b=sr.nextInt();
 	    Animal o = new Animal(a,b);
-		
+	    System.out.println("===================================================");
+	    System.out.println("=====================================");
+	    System.out.println("=========================");
+	    System.out.println("==============");
+	    System.out.println("======");
+	    System.out.println("==");
+	    
+	    
+	    
+	    
 		boolean p = true ;
 		boolean pp = true ;
 		boolean ppp = true ;
