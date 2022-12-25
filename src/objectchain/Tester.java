@@ -7,15 +7,31 @@ public class Tester {
 	//every time the user select "yes to enter a new value it will repet all the while loop in the program "
 
 	public static void main(String[] args) {
+		System.out.println("=======constractor==============");
+		Farm f = new Farm(" majid ","hisham ","adnan"); 
+		
+		System.out.println("============constractor program================");
+	/////////////////////////////////////////////////////////////////////////////////////////////////	
+		// constructer with user input 
+		Scanner sr = new Scanner(System.in);
+		System.out.println("Enter the Animal name");
+		String a=sr.next();
+		System.out.println("Enter the Animal age");
+		int b=sr.nextInt();
+	    Animal o = new Animal(a,b);
+		
 		boolean p = true ;
 		boolean pp = true ;
 		boolean ppp = true ;
+		
+		
 
        // this project having object chain and the for each together
         Scanner sc = new Scanner(System.in);
 		ArrayList<Department> departmentA = new ArrayList<Department>();
 		
 		School school1 = new School();
+		System.out.println("============shcool program================");
 		System.out.println("welcome to object chaining system");
 		System.out.println("Please Enter School Name : ");
 		school1.setName(sc.nextLine());
@@ -104,8 +120,15 @@ public class Tester {
 						System.out.println(">> Teacher name is : " + t.getName());
 						System.out.println(">> Teacher id is : :" + t.getId());
 						System.out.println("================== Student List =====================");
-						     
-						
+						       for(Student s : t.studentList) {
+							System.out.println("================== Student Details =====================");
+							System.out.println(">> Student name is : " + s.getName());
+							System.out.println(">> Student id is : :" + s.getId());
+							System.out.println(">> Course name is : " + s.course1.getName());
+							System.out.println(">> Course type is : :" + s.course1.getType());
+							System.out.println(">> mathMark is : " + s.course1.markCourse.getMathMark());
+							System.out.println(">> physics mark is : :" + s.course1.markCourse.getPhysics());
+						}
 					
 					}
 					
