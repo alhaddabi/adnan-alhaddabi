@@ -9,9 +9,17 @@ public class Tester {
 		boolean p = true ;
 		boolean pp = true ;
 		boolean ppp = true ;
-
+		boolean pppp = true ;
+		int number ;
+		while (pppp) 
+		System.out.println("Select 1 to enter the program or 2 to stop the program" );
+        
+        Scanner sc = new Scanner(System.in);
+        int number3 = sc.nextInt();
+        if (number3 == 1)
+        {
 		ArrayList<Department> departmentA = new ArrayList<Department>();
-		Scanner sc = new Scanner(System.in);
+		
 		School school1 = new School();
 		System.out.println("welcome to object chaining system");
 		System.out.println("Please Enter School Name : ");
@@ -73,17 +81,17 @@ public class Tester {
 					pp = false;
 				}
 			}
-//			departmentA.add(dep);
-//			System.out.println("Do you want to addd new department??? yes / no :");
-//			String newdepartment = sc.next();
-//			if (newdepartment.equals("yes"))
-//			{
-//				
-//			}
-//			else if (newdepartment.equals("no"))
-//					{
-//				         p = false ;
-//					}
+			departmentA.add(dep);
+			System.out.println("Do you want to addd new department??? yes / no :");
+			String newdepartment = sc.next();
+			if (newdepartment.equals("yes"))
+			{
+				
+			}
+			else if (newdepartment.equals("no"))
+					{
+				         p = false ;
+					}
 				
 
 				System.out.println("=========== School Details ============");
@@ -116,6 +124,14 @@ public class Tester {
 
 			}
 			sc.close();
+			
+        }
+        
+        else
+        	
+        {
+        	pppp = false;
+        }
 		}
 		
 }
