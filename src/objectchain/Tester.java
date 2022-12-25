@@ -48,17 +48,17 @@ public class Tester {
 					st.course1.markCourse.setMathMark(sc.nextInt());
 					System.out.println("Please Enter physics Mark : ");
 					st.course1.markCourse.setPhysics(sc.nextInt());
-					t.studentList.add(st);
-					System.out.println("Do You want another Student?? yes / no ");
-					String newstudent = sc.next();
-					if (newstudent.equals("yes"))
-					{
-						
-					}
-					else if (newstudent.equals("no"))
-					{
-						ppp = false ;
-					}
+//					t.studentList.add(st);
+//					System.out.println("Do You want another Student?? yes / no ");
+//					String newstudent = sc.next();
+//					if (newstudent.equals("yes"))
+//					{
+//						
+//					}
+//					else if (newstudent.equals("no"))
+//					{
+//						ppp = false ;
+//					}
 				}
 				dep.teacherList.add(t);
 				
