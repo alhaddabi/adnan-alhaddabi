@@ -48,17 +48,17 @@ public class Tester {
 					st.course1.markCourse.setMathMark(sc.nextInt());
 					System.out.println("Please Enter physics Mark : ");
 					st.course1.markCourse.setPhysics(sc.nextInt());
-//					t.studentList.add(st);
-//					System.out.println("Do You want another Student?? yes / no ");
-//					String newstudent = sc.next();
-//					if (newstudent.equals("yes"))
-//					{
-//						
-//					}
-//					else if (newstudent.equals("no"))
-//					{
-//						ppp = false ;
-//					}
+					t.studentList.add(st);
+					System.out.println("Do You want another Student?? yes / no ");
+					String newstudent = sc.next();
+					if (newstudent.equals("yes"))
+					{
+						
+					}
+					else if (newstudent.equals("no"))
+					{
+						ppp = false ;
+					}
 				}
 				dep.teacherList.add(t);
 				
@@ -73,22 +73,22 @@ public class Tester {
 					pp = false;
 				}
 			}
-			departmentA.add(dep);
-			System.out.println("Do you want to addd new department??? yes / no :");
-			String newdepartment = sc.next();
-			if (newdepartment.equals("yes"))
-			{
-				
-			}
-			else if (newdepartment.equals("no"))
-					{
-				         p = false ;
-					}
+//			departmentA.add(dep);
+//			System.out.println("Do you want to addd new department??? yes / no :");
+//			String newdepartment = sc.next();
+//			if (newdepartment.equals("yes"))
+//			{
+//				
+//			}
+//			else if (newdepartment.equals("no"))
+//					{
+//				         p = false ;
+//					}
 				
 
 				System.out.println("=========== School Details ============");
 				System.out.println(">> School name is :" + school1.getName());
-				System.out.println(">> School id is :" + school1.getId());
+		     	System.out.println(">> School id is :" + school1.getId());
 				      for( Department department :departmentA) {
 					System.out.println("============= Department name is " + department.getName()+" ============");
 					System.out.println("============= Department Size is " + department.getdSize());
