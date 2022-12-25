@@ -104,15 +104,8 @@ public class Tester {
 						System.out.println(">> Teacher name is : " + t.getName());
 						System.out.println(">> Teacher id is : :" + t.getId());
 						System.out.println("================== Student List =====================");
-						       for(Student s : t.studentList) {
-							System.out.println("================== Student Details =====================");
-							System.out.println(">> Student name is : " + s.getName());
-							System.out.println(">> Student id is : :" + s.getId());
-							System.out.println(">> Course name is : " + s.course1.getName());
-							System.out.println(">> Course type is : :" + s.course1.getType());
-							System.out.println(">> mathMark is : " + s.course1.markCourse.getMathMark());
-							System.out.println(">> physics mark is : :" + s.course1.markCourse.getPhysics());
-						}
+						     
+						
 					
 					}
 					
