@@ -4,20 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tester {
+	//every time the user select "yes to enter a new value it will repet all the while loop in the program "
 
 	public static void main(String[] args) {
 		boolean p = true ;
 		boolean pp = true ;
 		boolean ppp = true ;
-		boolean pppp = true ;
-		int number ;
-		while (pppp) 
-		System.out.println("Select 1 to enter the program or 2 to stop the program" );
-        
+
+       // this project having object chain and the for each together
         Scanner sc = new Scanner(System.in);
-        int number3 = sc.nextInt();
-        if (number3 == 1)
-        {
 		ArrayList<Department> departmentA = new ArrayList<Department>();
 		
 		School school1 = new School();
@@ -25,6 +20,7 @@ public class Tester {
 		System.out.println("Please Enter School Name : ");
 		school1.setName(sc.nextLine());
 		System.out.println("Please Enter School ID : ");
+		// this while loop will keep repating  every time the user choose to enter a new value for department
 		school1.setId(sc.nextInt());
 		while(p) {
 	
@@ -34,6 +30,7 @@ public class Tester {
 			System.out.println("Please Enter Department size : ");
 			dep.setdSize(sc.nextInt());
 			System.out.println("Please Enter Department location : ");
+			// this will keep repating every time the user will choose to enter a new value for teacher
 			dep.setLocation(sc.next());
 			while(pp) {
 				
@@ -41,6 +38,7 @@ public class Tester {
 				System.out.println("Please Enter Teacher name : ");
 				t.setName(sc.next());
 				System.out.println("Please Enter Teacher ID : ");
+				// this while will keep repating every time the user choose to enter a new value for student 
 				t.setId(sc.nextInt());
 				while(ppp) {
 					Student st = new Student();
@@ -93,7 +91,7 @@ public class Tester {
 				         p = false ;
 					}
 				
-
+                // the for each 
 				System.out.println("=========== School Details ============");
 				System.out.println(">> School name is :" + school1.getName());
 		     	System.out.println(">> School id is :" + school1.getId());
@@ -127,11 +125,5 @@ public class Tester {
 			
         }
         
-        else
-        	
-        {
-        	pppp = false;
-        }
 		}
 		
-}

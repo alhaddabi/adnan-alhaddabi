@@ -7,7 +7,7 @@ public class Department {
 	private int Size;
 	private String location;
 	Teacher teacher1 = new Teacher();
-	ArrayList<Teacher> teacherList;
+	ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
 
 	public String getName() {
 		return name;
