@@ -1,5 +1,5 @@
 package objectchain;
-
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -30,63 +30,103 @@ public class Tester {
 		// constructer with user input 
 		Scanner sr = new Scanner(System.in);
 		System.out.println("Enter the Animal name");
-		String a=sr.next();
-		System.out.println("Enter the Animal age"+"\n\n");
-		int b=sr.nextInt();
-	    Animal o = new Animal(a,b);
+		String animal=sr.next();
+		System.out.println("Enter the Animal age");
+		int animalage=sr.nextInt();
+	    Animal o = new Animal(animal,animalage);
 	    System.out.println("===================================================\n\n");
 
 	    
 		boolean p = true ;
 		boolean pp = true ;
 		boolean ppp = true ;
+		boolean i = true ;
 		
 		
 
        // this project having object chain and the for each together
         Scanner sc = new Scanner(System.in);
 		ArrayList<Department> departmentA = new ArrayList<Department>();
-		
+        Stack<String> historylist = new Stack<>();
+		while(i) {
 		School school1 = new School();
 		System.out.println("============shcool program================");
 		System.out.println("welcome to object chaining system");
+		System.out.println("Select 1 to Enter the program");
+		System.out.println("Select 2 to exit from the program ");
+		System.out.println("Select 3 to get the History");
+		// this while loop will keep repating  every time the user choose to enter a new value for department
+		int select = sc.nextInt();
+		String selectt = Integer.toString(select);
+		historylist.push(selectt);
+		if (select == 1) {
 		System.out.println("Please Enter School Name : ");
 		school1.setName(sc.nextLine());
 		System.out.println("Please Enter School ID : ");
-		// this while loop will keep repating  every time the user choose to enter a new value for department
 		school1.setId(sc.nextInt());
 		while(p) {
 	
 			Department dep = new Department();
 			System.out.println("Please Enter Department Name : ");
-			dep.setName(sc.next());
+			String depname = sc.next();
+			dep.setName(depname);
+			historylist.push(depname);
 			System.out.println("Please Enter Department size : ");
-			dep.setdSize(sc.nextInt());
+			// the down code I have done casting to push the input into the Stack after that i get it back as History list 
+			int depsize = sc.nextInt();
+			String depsizee = Integer.toString(depsize);
+			historylist.push(depsizee);
+			dep.setdSize(depsize);
+			// the upper code I have done casting to push the input into the Stack after that i get it back as History list
 			System.out.println("Please Enter Department location : ");
 			// this will keep repating every time the user will choose to enter a new value for teacher
 			dep.setLocation(sc.next());
 			while(pp) {
-				
+				// this while will keep repating every time the user choose to enter a new value for student 
 				Teacher t = new Teacher();
 				System.out.println("Please Enter Teacher name : ");
-				t.setName(sc.next());
+				String teachername = sc.next();
+				t.setName(teachername);
+				historylist.push(teachername);
 				System.out.println("Please Enter Teacher ID : ");
-				// this while will keep repating every time the user choose to enter a new value for student 
-				t.setId(sc.nextInt());
+				int teacherid = sc.nextInt();
+				t.setId(teacherid);
+				String teacheridd = Integer.toString(teacherid);
+				historylist.push(teacheridd);
 				while(ppp) {
 					Student st = new Student();
 					System.out.println("Please Enter Student name : ");
-					st.setName(sc.next());
+					String studentname = sc.next();
+					st.setName(studentname);
+					historylist.push(studentname);
 					System.out.println("Please Enter Student ID : ");
-					st.setId(sc.nextInt());
+				    int studentid = sc.nextInt();
+				    String studentidd = Integer.toString(studentid);
+					st.setId(studentid);
+					historylist.push(studentidd);
 					System.out.println("Please Enter Course name : ");
-					st.course1.setName(sc.next());
+					String coursename = sc.next();
+					st.course1.setName(coursename);
+					historylist.push(coursename);
 					System.out.println("Please Enter Course Type : ");
-					st.course1.setType(sc.next());
+					String coursetype = sc.next();
+					st.course1.setType(coursetype);
+					historylist.push(coursetype);
 					System.out.println("Please Enter math Mark : ");
-					st.course1.markCourse.setMathMark(sc.nextInt());
+					int mathmark = sc.nextInt();
+					String mathmarkk = Integer.toString(mathmark);
+					st.course1.markCourse.setMathMark(mathmark);
+					historylist.push(mathmarkk);
 					System.out.println("Please Enter physics Mark : ");
-					st.course1.markCourse.setPhysics(sc.nextInt());
+					int phy = sc.nextInt();
+					String phyy = Integer.toString(phy);
+					st.course1.markCourse.setPhysics(phy);
+					historylist.push(phyy);
+					
+					
+					
+					
+					
 					t.studentList.add(st);
 					System.out.println("Do You want another Student?? yes / no ");
 					String newstudent = sc.next();
@@ -129,8 +169,9 @@ public class Tester {
 				System.out.println(">> School name is :" + school1.getName());
 		     	System.out.println(">> School id is :" + school1.getId());
 				      for( Department department :departmentA) {
-					System.out.println("============= Department name is " + department.getName()+" ============");
-					System.out.println("============= Department Size is " + department.getdSize());
+				    	  System.out.println("================== department Details =====================");
+					System.out.println("Department name is " + department.getName());
+					System.out.println("Department Size is " + department.getdSize());
 					
 					for(Teacher t : department.teacherList) {
 						System.out.println("================== Teacher Details =====================");
@@ -154,9 +195,25 @@ public class Tester {
 				
 
 			}
-			sc.close();
+			
 			
         }
+		else if (select == 3)
+		{
+			System.out.println("the input history is ");
+			for (String v : historylist)
+			{
+				System.out.println(v);
+				
+			}
+		}
+		else if (select ==2 ) 
+		{
+			i = false ;
+			System.out.println("the program is closed");
+		}
         
 		}
-		
+		sc.close();
+    }
+}
