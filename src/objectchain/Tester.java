@@ -7,6 +7,21 @@ public class Tester {
 	//every time the user select "yes to enter a new value it will repet all the while loop in the program "
 
 	public static void main(String[] args) {
+	// changing the integer to a string and add them together 
+		System.out.println("===========adding integer and string================");
+		int num1 = 5;
+	    int num2 = 6;
+		Integer totalsum = num1 + num2 ;
+		String e = Integer.toString(totalsum);
+		
+		
+		String name= "adnan " + totalsum ;
+		System.out.println("the name and number is "+name);
+		
+	    System.out.println("===================================================\n\n");
+		
+		
+		
 		System.out.println("=======constractor==============");
 		Farm f = new Farm(" majid ","hisham ","adnan"); 
 		
@@ -16,18 +31,11 @@ public class Tester {
 		Scanner sr = new Scanner(System.in);
 		System.out.println("Enter the Animal name");
 		String a=sr.next();
-		System.out.println("Enter the Animal age");
+		System.out.println("Enter the Animal age"+"\n\n");
 		int b=sr.nextInt();
 	    Animal o = new Animal(a,b);
-	    System.out.println("===================================================");
-	    System.out.println("=====================================");
-	    System.out.println("=========================");
-	    System.out.println("==============");
-	    System.out.println("======");
-	    System.out.println("==");
-	    
-	    
-	    
+	    System.out.println("===================================================\n\n");
+
 	    
 		boolean p = true ;
 		boolean pp = true ;
