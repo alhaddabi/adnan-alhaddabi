@@ -1,5 +1,6 @@
 package objectchain;
-import java.util.*;
+import java.io.*;
+import java.util.Stack;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,6 +8,7 @@ public class Tester {
 	//every time the user select "yes to enter a new value it will repet all the while loop in the program "
 
 	public static void main(String[] args) {
+		
 	// changing the integer to a string and add them together 
 		System.out.println("===========adding integer and string================");
 		int num1 = 5;
@@ -22,21 +24,7 @@ public class Tester {
 		
 		
 		
-		System.out.println("=======constractor==============");
-		Farm f = new Farm(" majid ","hisham ","adnan"); 
-		
-		System.out.println("============constractor program================");
-	/////////////////////////////////////////////////////////////////////////////////////////////////	
-		// constructer with user input 
-		Scanner sr = new Scanner(System.in);
-		System.out.println("Enter the Animal name");
-		String animal=sr.next();
-		System.out.println("Enter the Animal age");
-		int animalage=sr.nextInt();
-	    Animal o = new Animal(animal,animalage);
-	    System.out.println("===================================================\n\n");
-
-	    
+	/////////////////////////////////////////////////////////////////////////////////////////////////			
 		boolean p = true ;
 		boolean pp = true ;
 		boolean ppp = true ;
@@ -54,7 +42,11 @@ public class Tester {
 		System.out.println("welcome to object chaining system");
 		System.out.println("Select 1 to Enter the program");
 		System.out.println("Select 2 to exit from the program ");
-		System.out.println("Select 3 to get the History");
+		System.out.println("Select 3 to get the History and to get a .txt file");
+		System.out.println("Select 4 to have fixed constractor ");
+		System.out.println("Select 5 to have constractor Enterd by the user");
+
+
 		// this while loop will keep repating  every time the user choose to enter a new value for department
 		int select = sc.nextInt();
 		String selectt = Integer.toString(select);
@@ -165,6 +157,7 @@ public class Tester {
 					}
 				
                 // the for each 
+			else if (select == 8) 
 				System.out.println("=========== School Details ============");
 				System.out.println(">> School name is :" + school1.getName());
 		     	System.out.println(">> School id is :" + school1.getId());
@@ -194,8 +187,8 @@ public class Tester {
 				}
 				
 
-			}
 			
+		}
 			
         }
 		else if (select == 3)
@@ -204,16 +197,53 @@ public class Tester {
 			for (String v : historylist)
 			{
 				System.out.println(v);
-				
 			}
+			
+			try {
+				
+				BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+				writer.write("\nthis is your history list ");
+				for (String v : historylist) {
+					writer.write("\n"+v);
+				}
+				writer.close();
+				}catch (IOException o) {
+					o.printStackTrace();
+				}
+			
+			
 		}
 		else if (select ==2 ) 
 		{
 			i = false ;
 			System.out.println("the program is closed");
 		}
-        
+		else if (select == 4)
+		{
+
+			System.out.println("=======constractor==============");
+			Farm f = new Farm(" majid ","hisham ","adnan"); 
+			
+			System.out.println("============constractor program================");
+		}
+		else if (select == 5)
+		{
+			// constructer with user input 
+			Scanner sr = new Scanner(System.in);
+			System.out.println("Enter the Animal name");
+			String animal=sr.next();
+			System.out.println("Enter the Animal age");
+			int animalage=sr.nextInt();
+		    Animal o = new Animal(animal,animalage);
+		    System.out.println("===================================================\n\n");
+		}
+		else if (select == 6)
+		{
+			
+			
+		}
 		}
 		sc.close();
-    }
+    
+}
 }
