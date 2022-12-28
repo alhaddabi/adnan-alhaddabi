@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Tester {
 	//every time the user select "yes to enter a new value it will repet all the while loop in the program "
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		
 	// changing the integer to a string and add them together 
 		System.out.println("===========adding integer and string================");
@@ -45,6 +45,13 @@ public class Tester {
 		System.out.println("Select 3 to get the History and to get a .txt file");
 		System.out.println("Select 4 to have fixed constractor ");
 		System.out.println("Select 5 to have constractor Enterd by the user");
+		System.out.println("Select 6 to read .txt file ");
+		System.out.println("Select 7 to enter the counter and count the input  ");
+		// the search is based on the entered input from the user
+		System.out.println("Select 8 to count words from the enterd history output.txt file");
+
+
+
 
 
 		// this while loop will keep repating  every time the user choose to enter a new value for department
@@ -165,12 +172,11 @@ public class Tester {
 				    	  System.out.println("================== department Details =====================");
 					System.out.println("Department name is " + department.getName());
 					System.out.println("Department Size is " + department.getdSize());
-					
 					for(Teacher t : department.teacherList) {
 						System.out.println("================== Teacher Details =====================");
 						System.out.println(">> Teacher name is : " + t.getName());
 						System.out.println(">> Teacher id is : :" + t.getId());
-						System.out.println("================== Student List =====================");
+						System.out.println("================== Student List =====================");			
 						       for(Student s : t.studentList) {
 							System.out.println("================== Student Details =====================");
 							System.out.println(">> Student name is : " + s.getName());
@@ -179,6 +185,7 @@ public class Tester {
 							System.out.println(">> Course type is : :" + s.course1.getType());
 							System.out.println(">> mathMark is : " + s.course1.markCourse.getMathMark());
 							System.out.println(">> physics mark is : :" + s.course1.markCourse.getPhysics());
+							
 						}
 					
 					}
@@ -191,6 +198,12 @@ public class Tester {
 		}
 			
         }
+		else if (select ==2 ) 
+		{
+			i = false ;
+			System.out.println("the program is closed");
+		}
+		
 		else if (select == 3)
 		{
 			System.out.println("the input history is ");
@@ -200,7 +213,7 @@ public class Tester {
 			}
 			
 			try {
-				
+				// this code is for creating a .txt file and transfiring the history into it 
 				BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
 				writer.write("\nthis is your history list ");
 				for (String v : historylist) {
@@ -211,13 +224,8 @@ public class Tester {
 					o.printStackTrace();
 				}
 			
-			
 		}
-		else if (select ==2 ) 
-		{
-			i = false ;
-			System.out.println("the program is closed");
-		}
+		
 		else if (select == 4)
 		{
 
@@ -239,11 +247,76 @@ public class Tester {
 		}
 		else if (select == 6)
 		{
+			//this code is for scanning the file and getting the text from the .txt file 
 			
 			
+			
+			
+			File file = new File("\\Users\\Lenovo\\eclipse-workspace\\objectchain\\newtext.txt");
+			Scanner scan = new Scanner(file);
+			while(scan.hasNextLine())
+		    System.out.println(scan.nextLine());			
 		}
+		else if (select == 7)
+		{
+			// this code will count the Enterd text by the user and and will show the repeted String value and how many its repeted .
+			Scanner sr = new  Scanner(System.in);
+			System.out.print("Enter any String text :");
+			String str = sr.nextLine();
+			String[] word = str.split(" ");
+			int count ; 
+			for (int l = 0 ; l<word.length ; l++)
+			{
+				count =1;
+				for (int k = l+1 ; k<word.length ; k++)
+                     {
+	                     if(word[l].equals(word[k]))
+	                     {
+	                    	 count = count +1;
+	                    	 word[k]="0";
+	                     }
+                     }
+				if(word[l]!="0")
+				{
+					System.out.println(word[l]+"    "+count);
+				}
+			}
 		}
+		else if (select == 8)
+			// this code is for getting input from the user and it count how many time its repeted 
+		{
+			try {
+				// this down code is for reading the code from the text 
+			BufferedReader reader = new BufferedReader(new FileReader("\\Users\\Lenovo\\eclipse-workspace\\objectchain\\output.txt"));
+			System.out.println("Enter the word you want to find it ");
+			String find = sc.next();
+			String name1 ;
+			int count = 0 ;
+			while ((name1 = reader.readLine())!=null)
+			{
+				if(name1.equals(find))
+				{
+					count++;
+				}
+					
+			}
+			if (count !=0)
+			{
+				// it'll check the written word and count them in every single line 
+				System.out.println("the Enterd word is have been find "+count+" time");
+			}
+			else 
+			{
+				System.out.println("please try another words");
+			}
+				reader.close();
+			}
+			catch (IOException o) {
+				o.printStackTrace();
+			}
+		}
+		
+}	
 		sc.close();
-    
 }
 }
