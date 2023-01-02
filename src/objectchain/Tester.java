@@ -2,12 +2,13 @@ package objectchain;
 import java.io.*;
 import java.util.Stack;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Tester {
 	//every time the user select "yes to enter a new value it will repet all the while loop in the program "
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws Throwable {
 		
 	// changing the integer to a string and add them together 
 		System.out.println("===========adding integer and string================");
@@ -60,9 +61,25 @@ public class Tester {
 		historylist.push(selectt);
 		if (select == 1) {
 		System.out.println("Please Enter School Name : ");
-		school1.setName(sc.nextLine());
+		school1.setName(sc.next());
+		// the code down is for removing the Exceptiops form the prgram in the runing time 
+		boolean t1 = false;
+		do {
+			t1 = false ;
+		try // for handing the exception 
+		{
 		System.out.println("Please Enter School ID : ");
 		school1.setId(sc.nextInt());
+		}
+             catch (InputMismatchException w) { // for handing the try and showing the given pritn insted of showing an error excpation
+			System.out.println("the school ID can only take int ");
+			t1 = true;
+			sc.nextLine(); // with out the sc.nextLine() there will be an infinty loop going 
+		}
+		}while(t1); //  we have to do (do - while) to make the condation happen
+			
+			
+			
 		while(p) {
 	
 			Department dep = new Department();
@@ -221,6 +238,7 @@ public class Tester {
 				}
 				writer.close();
 				}catch (IOException o) {
+					
 					o.printStackTrace();
 				}
 			
@@ -248,10 +266,6 @@ public class Tester {
 		else if (select == 6)
 		{
 			//this code is for scanning the file and getting the text from the .txt file 
-			
-			
-			
-			
 			File file = new File("\\Users\\Lenovo\\eclipse-workspace\\objectchain\\newtext.txt");
 			Scanner scan = new Scanner(file);
 			while(scan.hasNextLine())
@@ -315,6 +329,7 @@ public class Tester {
 				o.printStackTrace();
 			}
 		}
+		
 		
 }	
 		sc.close();
