@@ -50,6 +50,8 @@ public class Tester {
 		System.out.println("Select 7 to enter the counter and count the input  ");
 		// the search is based on the entered input from the user
 		System.out.println("Select 8 to count words from the enterd history output.txt file");
+		System.out.println("Select 9 to creat serliaztion File from the Studenserlixation class");
+		System.out.println("Select 10 to creat Deserliaztion File from the .txt file saved ");
 
 
 
@@ -63,6 +65,7 @@ public class Tester {
 		System.out.println("Please Enter School Name : ");
 		school1.setName(sc.next());
 		// the code down is for removing the Exceptiops form the prgram in the runing time 
+		// and will not show an error if the user type integer but, it will ask again to input the correct value
 		boolean t1 = false;
 		do {
 			t1 = false ;
@@ -329,9 +332,63 @@ public class Tester {
 				o.printStackTrace();
 			}
 		}
+		else if (select == 9)
+			// the code down is for serlizaing 
+			// seralization
+		{
+			Studentserlization ser = new Studentserlization();
+		    Scanner sr = new Scanner(System.in);
+		    System.out.print("Enter the student name ");
+		    ser.StudentName = sr.nextLine();
+		    System.out.print("Enter the student location name ");
+		    ser.studetnLocation = sr.nextLine();
+		    System.out.print("Enter the Age name ");
+		    ser.age = sr.nextInt();
+		    
+		    
+		    try{
+		    	
+		        FileOutputStream file = new FileOutputStream("serlization4.txt");
+		        ObjectOutputStream out = new ObjectOutputStream(file);
+		        out.writeObject(ser);
+		        out.close();
+		        file.close();
+		        System.out.println("serialized and saved");
+		    }catch (Exception ex){
+		      ex.printStackTrace();
+		    }
+		}
+		else if (select == 10)
+			// Deserlization
+		{
+			try
+		    {
+		        // Reading the object from a file
+		        FileInputStream file = new FileInputStream("student.txt");
+		        ObjectInputStream in = new ObjectInputStream(file);
+		        // Method for deserialization of object
+		        Studentserlization object1 = (Studentserlization) in.readObject();
+		        in.close();
+		        file.close();
+		        System.out.println("Object has been deserialized ");
+		        System.out.println("Student Name:  " + object1.StudentName);
+		        System.out.println("Student Address:  " + object1.studetnLocation);
+		        System.out.println("Student ID:  " + object1.age);
+		    }
+		    catch(IOException ex)
+		    {
+		        System.out.println("IOException is caught");
+		    }
+		    catch(ClassNotFoundException ex)
+		    {
+		        System.out.println("ClassNotFoundException is caught");
+		    }
+		}
 		
-		
-}	
+		}
 		sc.close();
+		
+		}
+			
 }
-}
+
