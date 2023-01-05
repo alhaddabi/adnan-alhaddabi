@@ -52,6 +52,8 @@ public class Tester {
 		System.out.println("Select 8 to count words from the enterd history output.txt file");
 		System.out.println("Select 9 to creat serliaztion File from the Studenserlixation class");
 		System.out.println("Select 10 to creat Deserliaztion File from the .txt file saved ");
+		System.out.println("Select 11 to read from .txt file and get the repated names");
+
 
 
 
@@ -300,6 +302,7 @@ public class Tester {
 			}
 		}
 		else if (select == 8)
+			
 			// this code is for getting input from the user and it count how many time its repeted 
 		{
 			try {
@@ -384,11 +387,37 @@ public class Tester {
 		        System.out.println("ClassNotFoundException is caught");
 		    }
 		}
-		
+		else if (select == 11)
+		{
+				    String[] word = new String[5];
+				    word[0]="adnan";
+				    word[1]="adnan";
+				    word[2]="oman";
+				    word[3]="majid";
+				    word[4]="oman";
+					int count ; 
+					for (int l = 0 ; l<word.length ; l++)
+					{
+						count =1;
+						for (int k = l+1 ; k<word.length ; k++)
+		                     {
+			                     if(word[l].equals(word[k]))
+			                     {
+			                    	 count = count +1;
+			                    	 word[k]="0";
+			                     }
+		                     }
+						if(word[l]!="0")
+						{
+							System.out.println(word[l]+" have been repated "+count+" time");
+						}
+					}
+			}
 		}
 		sc.close();
+		}
+		
 		
 		}
-			
-}
+		
 
